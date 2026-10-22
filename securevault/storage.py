@@ -527,19 +527,6 @@ def folder_is_writable(path):
         return False
 
 
-def disk_free_bytes(path):
-    """Free space on the disk that holds a path, or None if unknown."""
-    try:
-        usage = os.statvfs(path)
-        return usage.f_bavail * usage.f_frsize
-    except AttributeError:
-        # Windows does not have statvfs. This is not important enough to
-        # bring in a third party library for.
-        return None
-    except OSError:
-        return None
-
-
 def human_bytes(number):
     """Turn a byte count into something readable."""
     if number is None:

@@ -25,6 +25,7 @@ worse than useless.
 """
 
 import copy
+import base64
 import hashlib
 import secrets
 
@@ -878,14 +879,12 @@ def _encrypt_bytes(raw_bytes, key):
     base64 turns any bytes into safe text. It costs about a third of the size
     and makes the code much simpler.
     """
-    import base64
     encoded = base64.b64encode(raw_bytes).decode("ascii")
     return crypto.encrypt_text(encoded, key)
 
 
 def _decrypt_bytes(token, key):
     """The reverse of _encrypt_bytes."""
-    import base64
     encoded = crypto.decrypt_text(token, key)
     return base64.b64decode(encoded.encode("ascii"))
 

@@ -20,7 +20,9 @@ step. The report is generated on demand and never stored anywhere, because
 a summary of your weak passwords is itself a secret.
 """
 
+import os
 import hashlib
+import shutil
 import datetime
 
 from . import constants, utils, strength
@@ -444,7 +446,6 @@ def doctor_report(data_directory, meta=None, open_vault_object=None):
 
 def os_writable(path):
     """Check writability without leaving anything behind."""
-    import os
     if not os.path.isdir(path):
         return False
     probe_name = ".sv_probe_" + hashlib.sha256(str(datetime.datetime.now()).encode()).hexdigest()[:8]
@@ -460,7 +461,6 @@ def os_writable(path):
 
 def _disk_free(path):
     try:
-        import shutil
         return shutil.disk_usage(path).free
     except (OSError, AttributeError):
         return None
