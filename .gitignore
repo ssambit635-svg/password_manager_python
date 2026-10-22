@@ -1,0 +1,64 @@
+# --- Python -----------------------------------------------------------------
+__pycache__/
+*.py[cod]
+*.pyo
+*.pyd
+*.egg-info/
+.eggs/
+build/
+dist/
+.venv/
+venv/
+env/
+
+# --- Test and lint caches ---------------------------------------------------
+.pytest_cache/
+.mypy_cache/
+.ruff_cache/
+.coverage
+.coverage.*
+htmlcov/
+.tox/
+.nox/
+
+# --- Editors and operating systems ------------------------------------------
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+.DS_Store
+Thumbs.db
+desktop.ini
+
+# --- SecureVault data -------------------------------------------------------
+# The program keeps its data in ~/.securevault by default, but people do run
+# it with --data-dir pointing at a folder inside a checkout, and that folder
+# must never be committed. The program also writes its own .gitignore inside
+# the data folder; this is the second line of defence.
+.securevault/
+vault.enc
+decoy_vault.enc
+meta.json
+emergency_kit.txt
+backups/
+attachments/
+*.svbackup
+
+# --- Unencrypted exports ----------------------------------------------------
+# These are exactly the files you do not want in a repository. The program
+# refuses to overwrite them, which is a good moment to remember to delete
+# them once the migration is done.
+vault-export.csv
+vault-export.json
+vault-health.txt
+accounts.txt
+
+# --- Old version 1 files ----------------------------------------------------
+# Plain text passwords, from before this project knew better.
+passwords.json
+master.json
+
+# --- Local scratch ----------------------------------------------------------
+scratch/
+tmp/
