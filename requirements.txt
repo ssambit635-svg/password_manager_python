@@ -1,0 +1,8 @@
+# SecureVault runtime dependencies.
+#
+# There is exactly one. That is on purpose. Every extra package is another
+# thing that has to be installed, audited and kept up to date, and a password
+# manager is the worst possible place for a supply chain surprise.
+#
+# cryptography provides Fernet (AES-128-CBC + HMAC-SHA256) and PBKDF2.
+cryptography>=41.0.0

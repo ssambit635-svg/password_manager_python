@@ -1,0 +1,8 @@
+# Development dependencies.
+#
+# The test suite itself only needs the standard library's unittest and the
+# runtime dependency. pytest is optional but nicer, and pyflakes catches the
+# unused imports that pile up when you refactor by moving code around.
+-r requirements.txt
+pytest>=7.0.0
+pyflakes>=3.0.0
